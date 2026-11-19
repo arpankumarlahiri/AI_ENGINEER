@@ -1,4 +1,4 @@
-.PHONY: sync test serve lint fmt
+.PHONY: sync test serve lint fmt docker
 
 
 PORT ?= 8080
@@ -11,6 +11,10 @@ test:
 
 serve:
 	uv run uvicorn src.ai_engineer.app:app --reload --port $(PORT)
+
+docker:
+	docker build -t ai-engineer .
+	docker run --rm -p $(PORT):8080 --env-file .env  ai-engineer
 
 lint:
 	uv run ruff check .
