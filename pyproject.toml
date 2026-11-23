@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "docling>=2.151.1",
     "fastapi>=0.165.0",
     "pydantic-settings>=2.16.3",
     "uvicorn>=0.54.0",
